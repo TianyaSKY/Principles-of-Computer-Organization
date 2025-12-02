@@ -1,0 +1,1622 @@
+[
+    {
+        "id": 1,
+        "type": "single_choice",
+        "question": "通过云不能得到的IT资源有（ ）。",
+        "options": [
+            "A. 电子元件",
+            "B. 云盘",
+            "C. 数据",
+            "D. 算力"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 2,
+        "type": "single_choice",
+        "question": "云计算不可能是（ ）。",
+        "options": [
+            "A. 计算范型",
+            "B. 软件",
+            "C. 平台",
+            "D. 能量"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 3,
+        "type": "single_choice",
+        "question": "云计算不属于（ ）。",
+        "options": [
+            "A. 网络应用",
+            "B. 分布式计算",
+            "C. 自动化技术",
+            "D. 对等大型主机协同工作系统"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 4,
+        "type": "single_choice",
+        "question": "以下关于云计算的表述不够准确的选项是（ ）。",
+        "options": [
+            "A. 云计算对服务器端的要求非常高，必须是大型服务器或其集群",
+            "B. 云计算不针对特定的应用，同一个云可以同时支撑不同的应用",
+            "C. 云计算使用冗余、数据多副本容错等措施来保障服务的高可靠性",
+            "D. 用户可以通过网络在任何时间、任何地点，随时随地采用任何设备登录到云计算系统后并进行计算服务"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 5,
+        "type": "single_choice",
+        "question": "云计算中可以虚拟化的IT资源不包括（ ）。",
+        "options": [
+            "A. 网络应用程序",
+            "B. 微机和服务器组成的网格",
+            "C. 存储设备",
+            "D. 医疗云服务的电子病历"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 6,
+        "type": "single_choice",
+        "question": "云计算中的多租户技术中，租户可以定制使用的是（ ）。",
+        "options": [
+            "A. 服务器",
+            "B. 存储资源",
+            "C. 网络资源",
+            "D. 应用程序"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 7,
+        "type": "single_choice",
+        "question": "云计算中系统级软件层的资源不包括（ ）。",
+        "options": [
+            "A. 应用中间件",
+            "B. 分布式文件系统",
+            "C. 数据库",
+            "D. 语言虚拟机"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 8,
+        "type": "single_choice",
+        "question": "不属于云计算的应用软件的设计和实现与传统软件的不同的选项是（ ）。",
+        "options": [
+            "A. 强调多租户架构",
+            "B. 不可动态伸缩、强调构架稳定",
+            "C. 要求基于Web的交互能力",
+            "D. 充分考虑海量数据存储支持"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 9,
+        "type": "single_choice",
+        "question": "美国国家标准与技术研究院的云模型具有四个部署模型，不包括（ ）。",
+        "options": [
+            "A. 公有云",
+            "B. 私有云",
+            "C. 协作云",
+            "D. 混合云"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 10,
+        "type": "single_choice",
+        "question": "以下属于私有云技术的是（ ）。",
+        "options": [
+            "A. 阿里云",
+            "B. 腾讯云",
+            "C. OpenStack",
+            "D. AWS"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 11,
+        "type": "single_choice",
+        "question": "为了用户实现跨平台办公和移动办公，可以通过任何终端访问自己的桌面，这种应用场合为（ ）。",
+        "options": [
+            "A. 企业私有云",
+            "B. 分布式桌面系统",
+            "C. 虚拟桌面",
+            "D. 综合办公虚拟机"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 12,
+        "type": "single_choice",
+        "question": "美国国家标准与技术研究院的云模型具有三种服务模型，不包括（ ）。",
+        "options": [
+            "A. 基础设施即服务（IaaS）",
+            "B. 软件即服务（SaaS）",
+            "C. 平台即服务（PaaS）",
+            "D. 框架即服务（FaaS）"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 13,
+        "type": "single_choice",
+        "question": "虚拟化攻击利用的是云计算虚拟化平台中的漏洞来危害云计算虚拟化平台的（ ）。",
+        "options": [
+            "A. 保密性",
+            "B. 可靠性",
+            "C. 可用性",
+            "D. 完整性"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 14,
+        "type": "fill_in",
+        "question": "云计算（cloud computing），简称“云”，是指通过互联网使用公共的______。",
+        "options": [],
+        "answer": "IT资源"
+    },
+    {
+        "id": 15,
+        "type": "fill_in",
+        "question": "云计算架构中存在______和云服务用户这一对IT资源实体。",
+        "options": [],
+        "answer": "云服务"
+    },
+    {
+        "id": 16,
+        "type": "fill_in",
+        "question": "云计算虚拟化技术将云系统的服务和底层资源抽象为______实体，使用户可以请求和利用这些资源。",
+        "options": [],
+        "answer": "逻辑"
+    },
+    {
+        "id": 17,
+        "type": "fill_in",
+        "question": "云计算中的多租户（Multi-Tenancy）是一种软件架构的______。",
+        "options": [],
+        "answer": "设计模式"
+    },
+    {
+        "id": 18,
+        "type": "fill_in",
+        "question": "云计算系统架构包含云硬件资源层、云操作系统层、云系统软件层和______。",
+        "options": [],
+        "answer": "云应用软件层"
+    },
+    {
+        "id": 19,
+        "type": "fill_in",
+        "question": "私有云是组织机构按照云计算的技术配置内部的IT资源，它的核心属性是______的专有性。",
+        "options": [],
+        "answer": "资源"
+    },
+    {
+        "id": 20,
+        "type": "fill_in",
+        "question": "基础设施即服务的服务模型下，授权用户必须有一个IP地址和访问服务器的______，用户通过互联网直接控制和使用这台服务器。",
+        "options": [],
+        "answer": "密钥"
+    },
+    {
+        "id": 21,
+        "type": "fill_in",
+        "question": "通过私有云，企业可以更好地控制数据的______和隐私性，提高业务的灵活性和可扩展性。",
+        "options": [],
+        "answer": "安全性"
+    },
+    {
+        "id": 22,
+        "type": "true_false",
+        "question": "云计算是指通过内联网使用公共的IT资源。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 23,
+        "type": "true_false",
+        "question": "云服务用户(cloud service consumer)是软件程序，而云服务接入的既可以是软件资源，也可以是硬件资源。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 24,
+        "type": "true_false",
+        "question": "云计算前端和后端之间的通信由一个中央服务器来管理。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 25,
+        "type": "true_false",
+        "question": "云计算中大多数IT资源都能被虚拟化。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 26,
+        "type": "true_false",
+        "question": "云系统软件层包含操作系统。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 27,
+        "type": "true_false",
+        "question": "Google Cloud Platform（GCP）为谷歌公司所有，是它的私有云。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 28,
+        "type": "true_false",
+        "question": "PaaS对应于云计算操作系统层，需要依赖云计算硬件资源层和云操作系统层。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 29,
+        "type": "true_false",
+        "question": "云计算在疫情中为远程教育提供了基础。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 30,
+        "type": "true_false",
+        "question": "CPU的工作频率与主板上的晶振频率不一定相同。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 31,
+        "type": "true_false",
+        "question": "因为磁盘可读可写，所以也称为随机存取存储器。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 32,
+        "type": "true_false",
+        "question": "目前大多数个人计算机都采用了RISC处理器。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 33,
+        "type": "true_false",
+        "question": "CISC计算机的不同指令，其执行时所需要的时钟周期数从一个到多个不等。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 34,
+        "type": "true_false",
+        "question": "DVD驱动器也可以读取CD光盘中的信息。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 35,
+        "type": "true_false",
+        "question": "光盘上的信息存储方式与磁盘相同。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 36,
+        "type": "true_false",
+        "question": "RAM不仅可读可写，而且读写任何地址单元的时间相等。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 37,
+        "type": "true_false",
+        "question": "无论是静态RAM还是动态RAM，都是易失性存储器。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 38,
+        "type": "true_false",
+        "question": "哈佛结构计算机的程序存储器和数据存储器是各自独立的。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 39,
+        "type": "true_false",
+        "question": "衡量打印机速度的参数PPM是指每分钟可打印出的页数。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 40,
+        "type": "true_false",
+        "question": "用USB接口与计算机连接的设备都是可以热插拔的。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 41,
+        "type": "true_false",
+        "question": "微型计算机硬件的系统结构与冯·诺依曼结构无本质上的差异。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 42,
+        "type": "true_false",
+        "question": "冯·诺依曼结构也称普林斯顿结构，是一种将程序存储器和数据存储器合并在一起的存储器结构。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 43,
+        "type": "true_false",
+        "question": "哈佛结构是一种并行体系结构，它的主要特点是将程序和数据存储在不同的存储空间中。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 44,
+        "type": "true_false",
+        "question": "现代个人计算机中的CPU除了集成有运算器和控制器外，还有GPU。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 45,
+        "type": "true_false",
+        "question": "磁盘存储器的磁道容量是面积和面密度的积，即其容量和盘面面积正相关。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 46,
+        "type": "true_false",
+        "question": "高速缓冲存储器（Cache）一般采用DRAM构成。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 47,
+        "type": "true_false",
+        "question": "对计算机而言，无符号整数和带符号整数的加、减运算电路完全一样。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 48,
+        "type": "true_false",
+        "question": "计算机中的加法器，因为只有n位，所以是一种模2^n运算系统。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 49,
+        "type": "true_false",
+        "question": "最好的基准程序是用户实际使用的程序或典型的简单程序。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 50,
+        "type": "true_false",
+        "question": "机器指令是一串0/1序列，能被机器直接理解并执行。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 51,
+        "type": "true_false",
+        "question": "计算机进行运算时，运算器不知道参加运算的是带符号数还是无符号数。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 52,
+        "type": "true_false",
+        "question": "程序执行结果仅依赖于高级语言语法和语义，与硬件无关。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 53,
+        "type": "true_false",
+        "question": "计算机硬件会影响程序执行的性能，但不会影响程序执行结果。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 54,
+        "type": "true_false",
+        "question": "冯·诺依曼以“关于EDVAC的报告草案”为题，提出了“存储程序通用电子计算机方案”。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 55,
+        "type": "true_false",
+        "question": "存储器不仅能存放数据，而且也能存放指令，形式上两者没有区别，但计算机能区分数据还是指令。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 56,
+        "type": "true_false",
+        "question": "每条指令一般由操作码和地址码两部分组成。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 57,
+        "type": "true_false",
+        "question": "MIPS数不能完全反应计算机性能的好坏。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 58,
+        "type": "true_false",
+        "question": "选择恰当的数值算法可以避免计算机程序的误差。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 59,
+        "type": "true_false",
+        "question": "美国发布的全球超级计算机500强最新排行榜的速度单位是MIPS。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 60,
+        "type": "true_false",
+        "question": "选用浮点数计算要比二进制小数的精度高。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 61,
+        "type": "true_false",
+        "question": "当前拥有量子比特数目最多的国家是印度。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 62,
+        "type": "true_false",
+        "question": "计算机产业因为在制造中产生的污染相对较小,所以一直是“洁净”的工业。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 63,
+        "type": "true_false",
+        "question": "Intel公司创始人戈登·摩尔在1965年预测：微处理器芯片的密度将每十八个月翻一番，称之为摩尔定律。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 64,
+        "type": "true_false",
+        "question": "计算机仿真是一门利用模型进行实验研究的技术，可以应用于需要进行繁复的实际实验或者无法进行实际实验的场合。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 65,
+        "type": "true_false",
+        "question": "微指令与机器的指令一样，在机器内是用一串二进制码来表示的，而且微指令的长度一般都比机器指令长。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 66,
+        "type": "true_false",
+        "question": "微程序的编制对指令执行速度影响极大，所以硬件人员一般不用微高级语言来编制微程序。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 67,
+        "type": "true_false",
+        "question": "语音与文字输入的实质是要让计算机从语音的声波和文字的形状中领会到含义，并将它转换成计算机可以处理的代码。从学科上说这属于范式(模式)识别。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 68,
+        "type": "true_false",
+        "question": "汉字识别主要分为脱机手写汉字识别、联机手写汉字识别和印刷体汉字识别三类，脱机手写汉字识别的技术难度最低。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 69,
+        "type": "true_false",
+        "question": "“中断”是由I/O设备或其他非预期的急需处理的事件引起的。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 70,
+        "type": "true_false",
+        "question": "通道是一种通用性和综合性都较强的输入输出方式，它的出现促进了计算机体系结构从分布式到集中式的发展。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 71,
+        "type": "true_false",
+        "question": "处理器硬件故障也叫外中断。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 72,
+        "type": "true_false",
+        "question": "所谓计算机实时处理，是指在某个事件或现象出现时及时地进行处理，而不是集中起来再进行批处理。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 73,
+        "type": "true_false",
+        "question": "多道程序的切换运行需借助于中断系统。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+    {
+        "id": 74,
+        "type": "true_false",
+        "question": "大型机是反映各个时期先进计算技术的大型专用(通用)计算机。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 75,
+        "type": "true_false",
+        "question": "20世纪70年代初，半导体存储器问世后，存储器芯片集成度大体上每三年翻两番，这就是著名的摩尔定律。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "T"
+    },
+
+    {
+        "id": 76,
+        "type": "fill_in",
+        "question": "在计算机术语中，将运算器、控制器、cache合在一起，称为______。",
+        "options": [],
+        "answer": "主机"
+    },
+    {
+        "id": 77,
+        "type": "fill_in",
+        "question": "2007年英特尔落户大连，其工厂主要生产用于芯片制造的______。",
+        "options": [],
+        "answer": "晶圆"
+    },
+    {
+        "id": 78,
+        "type": "fill_in",
+        "question": "运算器虽有许多部件组成，但核心部件是______。",
+        "options": [],
+        "answer": "加法器"
+    },
+    {
+        "id": 79,
+        "type": "fill_in",
+        "question": "半导体DRAM主要是靠______存贮信息。",
+        "options": [],
+        "answer": "电容"
+    },
+    {
+        "id": 80,
+        "type": "fill_in",
+        "question": "根据地址映像不同，CACHE分为直接映像、全相联映像和______三种。",
+        "options": [],
+        "answer": "组相联映像"
+    },
+    {
+        "id": 81,
+        "type": "fill_in",
+        "question": "微指令格式分为水平型微指令和______型微指令，其中，前者的并行操作能力比后者强。",
+        "options": [],
+        "answer": "垂直"
+    },
+    {
+        "id": 82,
+        "type": "fill_in",
+        "question": "在多级存储体系中，Cache存储器的主要功能是______。",
+        "options": [],
+        "answer": "减少访存"
+    },
+    {
+        "id": 83,
+        "type": "fill_in",
+        "question": "英文缩写VLSI的中文名称是______。",
+        "options": [],
+        "answer": "超大规模集成电路"
+    },
+    {
+        "id": 84,
+        "type": "fill_in",
+        "question": "英文缩写RISC的中文名称是______。",
+        "options": [],
+        "answer": "精简指令集计算机"
+    },
+    {
+        "id": 85,
+        "type": "fill_in",
+        "question": "英文缩写DMA的中文名称是______。",
+        "options": [],
+        "answer": "直接存储器存取"
+    },
+    {
+        "id": 86,
+        "type": "fill_in",
+        "question": "英文缩写DRAM的中文名称是______。",
+        "options": [],
+        "answer": "动态随机存取器"
+    },
+    {
+        "id": 87,
+        "type": "fill_in",
+        "question": "为了实现CPU对主存储器的读写访问，它们之间的连线按功能划分应当包括地址总线、数据总线和______。",
+        "options": [],
+        "answer": "控制总线"
+    },
+    {
+        "id": 88,
+        "type": "fill_in",
+        "question": "从计算机系统结构的发展和演变看，近代计算机是以______为中心的系统结构。",
+        "options": [],
+        "answer": "存储器"
+    },
+    {
+        "id": 89,
+        "type": "fill_in",
+        "question": "存储器按存储介质的不同可分为半导体存储器、磁表面存储器和______两种。",
+        "options": [],
+        "answer": "光存储器"
+    },
+    {
+        "id": 90,
+        "type": "fill_in",
+        "question": "若操作数在寄存器中，为______寻址方式。",
+        "options": [],
+        "answer": "寄存器"
+    },
+    {
+        "id": 91,
+        "type": "fill_in",
+        "question": "若操作数在指令中，为______寻址方式。",
+        "options": [],
+        "answer": "立即数"
+    },
+    {
+        "id": 92,
+        "type": "fill_in",
+        "question": "CPU的四个基本功能包括指令控制、操作控制、______和数据加工。",
+        "options": [],
+        "answer": "时间控制"
+    },
+    {
+        "id": 93,
+        "type": "fill_in",
+        "question": "在三种集中式总线仲裁方式中，______方式对电路的故障最敏感。",
+        "options": [],
+        "answer": "链式查询"
+    },
+    {
+        "id": 94,
+        "type": "fill_in",
+        "question": "在三种集中式总线仲裁方式中，______方式的响应速度最快。",
+        "options": [],
+        "answer": "独立请求"
+    },
+    {
+        "id": 95,
+        "type": "fill_in",
+        "question": "在输入/输出系统的四种典型数据传送控制方式中，程序查询方式和______主要由CPU执行程序来完成I/O操作。",
+        "options": [],
+        "answer": "中断驱动方式"
+    },
+    {
+        "id": 96,
+        "type": "fill_in",
+        "question": "DMA方式和______主要由专用硬件来完成I/O操作。",
+        "options": [],
+        "answer": "通道方式"
+    },
+    {
+        "id": 97,
+        "type": "fill_in",
+        "question": "(13.3125)10 = (______)8。",
+        "options": [],
+        "answer": "15.24"
+    },
+    {
+        "id": 98,
+        "type": "fill_in",
+        "question": "在DMA方式中，CPU和DMA控制器通常采用三种方法来分时使用主存，第一种是______。",
+        "options": [],
+        "answer": "停止CPU访问主存"
+    },
+    {
+        "id": 99,
+        "type": "fill_in",
+        "question": "在DMA方式中，CPU和DMA控制器通常采用三种方法来分时使用主存，第二种是______。",
+        "options": [],
+        "answer": "周期挪用"
+    },
+    {
+        "id": 100,
+        "type": "fill_in",
+        "question": "在DMA方式中，CPU和DMA控制器通常采用三种方法来分时使用主存，第三种是______。",
+        "options": [],
+        "answer": "DMA和CPU交替访问主存"
+    },
+    {
+        "id": 101,
+        "type": "fill_in",
+        "question": "设n=8（不包括符号位），则原码一位乘需做______次移位。",
+        "options": [],
+        "answer": "8"
+    },
+    {
+        "id": 102,
+        "type": "fill_in",
+        "question": "设n=8（不包括符号位），则原码一位乘需做最多______次加法。",
+        "options": [],
+        "answer": "8"
+    },
+    {
+        "id": 103,
+        "type": "fill_in",
+        "question": "设n=8（不包括符号位），则补码Booth算法需做______次移位。",
+        "options": [],
+        "answer": "8"
+    },
+    {
+        "id": 104,
+        "type": "fill_in",
+        "question": "设n=8（不包括符号位），则补码Booth算法需做最多______次加法。",
+        "options": [],
+        "answer": "9"
+    },
+    {
+        "id": 105,
+        "type": "fill_in",
+        "question": "一个总线传输周期包括申请分配阶段、寻址阶段、______和结束阶段。",
+        "options": [],
+        "answer": "传输阶段"
+    },
+    {
+        "id": 106,
+        "type": "fill_in",
+        "question": "CPU采用同步控制方式时，控制器使用机器周期和______组成的多极时序系统。",
+        "options": [],
+        "answer": "节拍"
+    },
+    {
+        "id": 107,
+        "type": "fill_in",
+        "question": "在组合逻辑控制器中，微操作控制信号由指令操作码、时序和______产生。",
+        "options": [],
+        "answer": "状态条件"
+    },
+    {
+        "id": 108,
+        "type": "fill_in",
+        "question": "原码一位乘法中，符号位与数值位______。",
+        "options": [],
+        "answer": "分开计算"
+    },
+    {
+        "id": 109,
+        "type": "fill_in",
+        "question": "原码一位乘法中，运算结果的符号位等于______。",
+        "options": [],
+        "answer": "相乘两数符号位的异或值"
+    },
+    {
+        "id": 110,
+        "type": "fill_in",
+        "question": "码值80H：若表示真值0，则为______码。",
+        "options": [],
+        "answer": "移"
+    },
+    {
+        "id": 111,
+        "type": "fill_in",
+        "question": "码值80H：若表示真值-128，则为______码。",
+        "options": [],
+        "answer": "补"
+    },
+    {
+        "id": 112,
+        "type": "fill_in",
+        "question": "某DRAM芯片，其存储容量为512K×8位，该芯片的地址线数目为______。",
+        "options": [],
+        "answer": "19"
+    },
+    {
+        "id": 113,
+        "type": "fill_in",
+        "question": "若为信息1100110设置偶校验位，则校验位为______。",
+        "options": [],
+        "answer": "0"
+    },
+    {
+        "id": 114,
+        "type": "fill_in",
+        "question": "现有4个数：00001111，11110000，00110000和11001111，其码距为______。",
+        "options": [],
+        "answer": "2"
+    },
+    {
+        "id": 115,
+        "type": "single_choice",
+        "question": "将硬盘，驱动，磁头封装在同一盒体的技术是（ ）。",
+        "options": [
+            "A. 曼切斯特盘",
+            "B. 罗切斯特盘",
+            "C. 温切斯特盘",
+            "D. 范切斯特盘"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 116,
+        "type": "single_choice",
+        "question": "有关高速缓冲存储器 cache 的说法不正确的是（ ）。",
+        "options": [
+            "A. 可能在 CPU 以外",
+            "B. CPU 内外都可以设置 cache",
+            "C. 可能在 CPU 以内",
+            "D. 若存在 cache ， CPU 就不能再访问内存"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 117,
+        "type": "single_choice",
+        "question": "郝壮买了一本名为计算机硬件宝典的书，他从书上摘抄了四句话...那么可能（ ）。",
+        "options": [
+            "A. 郝壮通过认真学习本书会成为一个硬件高手。",
+            "B. 本书错误百出，被郝扔进垃圾堆。",
+            "C. 这书虽然文字不严谨，但很实用。",
+            "D. 这书虽然没有错却很平庸。"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 118,
+        "type": "single_choice",
+        "question": "关于微指令的编码方式，焦佳娜认为...您会支持（ ）。",
+        "options": [
+            "A. 田洪霞",
+            "B. 王洪晶",
+            "C. 夏良",
+            "D. 焦佳娜"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 119,
+        "type": "single_choice",
+        "question": "以下不是我国使用的计算机汉字操作平台的汉字字符集的是（ ）。",
+        "options": [
+            "A. GB2312",
+            "B. GBK",
+            "C. GB18030",
+            "D. GB3028"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 120,
+        "type": "single_choice",
+        "question": "下列说法中正确的是（ ）。",
+        "options": [
+            "A. 采用变形补码进行加减运算可以避免溢出",
+            "B. 只有定点数运算才有可能溢出",
+            "C. 只有带符号数的运算才有可能产生溢出",
+            "D. 将两个正数相加有可能产生溢出"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 121,
+        "type": "single_choice",
+        "question": "下列数中最大的数是（ ）。",
+        "options": [
+            "A. (10011001)2",
+            "B. (227)8",
+            "C. (98)16",
+            "D. (152)10"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 122,
+        "type": "single_choice",
+        "question": "下面有关“中断”的叙述只有三个是正确的，（ ）是不正确的。",
+        "options": [
+            "A. 一旦有中断请求出现， CPU 立即停止当前指令的执行，转而去受理中断请求",
+            "B. CPU 响应中断时暂停运行当前程序",
+            "C. 中断方式一般适用于随机出现的服务",
+            "D. 必须进行现场保存操作"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 123,
+        "type": "single_choice",
+        "question": "某计算机字长32位，其存储容量为4MB，若按字编址，它的寻址范围是（ ）。",
+        "options": [
+            "A. 1M",
+            "B. 4MB",
+            "C. 4M",
+            "D. 1MB"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 124,
+        "type": "single_choice",
+        "question": "指令系统中采用不同寻址方式的目的主要是（ ）。",
+        "options": [
+            "A. 实现存储程序和程序控制",
+            "B. 缩短指令长度、扩大寻址空间、提高编程灵活性",
+            "C. 可以直接访问外存",
+            "D. 提供扩展操作码的可能并降低指令译码难度"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 125,
+        "type": "single_choice",
+        "question": "2007年诺贝尔奖又一次惠及在计算机领域做出贡献的科学家，他们的研究主要有益于（ ）。",
+        "options": [
+            "A. U 盘",
+            "B. 硬盘",
+            "C. 软盘",
+            "D. 光盘"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 126,
+        "type": "single_choice",
+        "question": "某机字长 32 位，存储容量为 2MB ，若按字编址，它的寻址范围是（ ）。",
+        "options": [
+            "A. 1M",
+            "B. 512KB",
+            "C. 512K",
+            "D. 256KB"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 127,
+        "type": "single_choice",
+        "question": "一般来说程序不可能处在（ ）中。",
+        "options": [
+            "A. ROM",
+            "B. RAM",
+            "C. 总线",
+            "D. 内存储器"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 128,
+        "type": "single_choice",
+        "question": "指令系统中所谓的寻址方式最不可能是指（ ）。",
+        "options": [
+            "A. 寻找操作数地址的方式",
+            "B. 寻找操作码地址的方式",
+            "C. 寻找指令地址的方式",
+            "D. 寻找微指令地址的方式"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 129,
+        "type": "single_choice",
+        "question": "表示寄存器地址时须使用（ ）。",
+        "options": [
+            "A. 无符号数",
+            "B. 原码",
+            "C. 反码",
+            "D. 补码"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 130,
+        "type": "single_choice",
+        "question": "侯理同学做研究需要2Mx8bit的内存...侯理想可以选择（ ）。",
+        "options": [
+            "A. 丁帅澎方案（位拓展）",
+            "B. 丁浩方案",
+            "C. 付磊方案",
+            "D. 王爽方案"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 131,
+        "type": "single_choice",
+        "question": "当 0 ≤ X < 1/2 时，则 [X] 补 是（ ）。",
+        "options": [
+            "A. 2+X",
+            "B. X",
+            "C. X/2",
+            "D. 2-X"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 132,
+        "type": "single_choice",
+        "question": "张伟琦为杨建华买了一台电脑，并告诉他该电脑为 32 位机器...那么（ ）。",
+        "options": [
+            "A. 张伟琦欺负杨建华是菜鸟，没有告诉他一句实话。",
+            "B. 张伟琦只有一点解释是对的(第三点)",
+            "C. 张有两点解释是对的，第二和第三句解释正确",
+            "D. 张有两点解释是对的，第三和第四句解释正确"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 133,
+        "type": "single_choice",
+        "question": "旧式硬盘驱动器（ ）。",
+        "options": [
+            "A. 耐震性差，搬运时要注意保护",
+            "B. 由于全封闭，耐震性好，不易损坏",
+            "C. 不用时要装入白铁皮套，防尘进入",
+            "D. 在搬运时不象显示器那样要注意保护"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 134,
+        "type": "single_choice",
+        "question": "目前不存在的微指令格式是（ ）。",
+        "options": [
+            "A. 水平",
+            "B. 垂直",
+            "C. 混合",
+            "D. 分段"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 135,
+        "type": "single_choice",
+        "question": "顺序存储器连续读出4个字所需的时间是（ ）。",
+        "options": [
+            "A. 2 × 10^-7 (S)",
+            "B. 8 × 10^-7 (S)",
+            "C. 4 × 10^-7 (S)",
+            "D. 16 × 10^-7 (S)"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 136,
+        "type": "single_choice",
+        "question": "交叉存储器连续读出4个字所需的时间是（ ）。",
+        "options": [
+            "A. 2.5 × 10^-7 (S)",
+            "B. 3.5 × 10^-7 (S)",
+            "C. 4.5 × 10^-7 (S)",
+            "D. 6.5 × 10^-7 (S)"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 137,
+        "type": "single_choice",
+        "question": "顺序存储器的带宽为（ ）。",
+        "options": [
+            "A. 64 × 10^7 (位/S)",
+            "B. 32 × 10^7 (位/S)",
+            "C. 16 × 10^7 (位/S)",
+            "D. 8 × 10^7 (位/S)"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 138,
+        "type": "single_choice",
+        "question": "2007 年英特尔 12（ ）晶圆厂选址已敲定大连。",
+        "options": [
+            "A. 微米",
+            "B. 毫米",
+            "C. 纳米",
+            "D. 英寸"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 139,
+        "type": "single_choice",
+        "question": "在微型机系统中，外围设备通过（ ）与主板的系统总线相连接。",
+        "options": [
+            "A. 适配器",
+            "B. 计数器",
+            "C. 设备控制器",
+            "D. 寄存器"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 140,
+        "type": "single_choice",
+        "question": "在微型机系统中， CPU 的硬件连接能力一般通过（ ）表示。",
+        "options": [
+            "A. 引脚数目",
+            "B. 地址和控制线数目",
+            "C. 总线的带宽",
+            "D. 寄存器的位数"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 141,
+        "type": "single_choice",
+        "question": "CRT 分辨率为 1024*1024 像素，像素的颜色数为 256 ，则刷新存储器容量为（ ）。",
+        "options": [
+            "A. 512KB",
+            "B. 1MB",
+            "C. 256KB",
+            "D. 2MB"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 142,
+        "type": "single_choice",
+        "question": "冯 . 诺曼计算机是属于（ ）。",
+        "options": [
+            "A. 单指令流单数据流（ SISD ）",
+            "B. 单指令流多数据流（ SIMD ）",
+            "C. 多指令流单数据流（ MISD ）",
+            "D. 多指令流多数据流（ MIMD)"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 143,
+        "type": "single_choice",
+        "question": "在流水线系统结构中，取指令、执行等操作是（ ）。",
+        "options": [
+            "A. 顺序",
+            "B. 转移",
+            "C. 中断",
+            "D. 重叠"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 144,
+        "type": "single_choice",
+        "question": "同步控制是（ ）。",
+        "options": [
+            "A. 只适用于CPU控制的方式",
+            "B. 只适用于外围设备控制的方式",
+            "C. 由统一时序信号控制的方式",
+            "D. 所有指令执行时间都相同的方式"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 145,
+        "type": "single_choice",
+        "question": "多总线结构的计算机系统，采用（ ）方法，对提高系统的吞吐率最有效。",
+        "options": [
+            "A. 多口存贮器",
+            "B. 提高主存的速度",
+            "C. 交叉编址多模块存贮器",
+            "D. 高速缓冲存贮器"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 146,
+        "type": "single_choice",
+        "question": "下列不是数据流计算特点的是（ ）。",
+        "options": [
+            "A. 设置状态",
+            "B. 没有指令计数器",
+            "C. 没有变量的概念",
+            "D. 操作结果不产生副作用"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 147,
+        "type": "single_choice",
+        "question": "在尾数下溢处理方法中，平均误差最大的是（ ）。",
+        "options": [
+            "A. 舍入法",
+            "B. 截断法",
+            "C. 恒置“1”法",
+            "D. ROM查表法"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 148,
+        "type": "single_choice",
+        "question": "07年诺贝尔奖...他们的发现了主要有益于硬盘制造的（ ）。",
+        "options": [
+            "A. 巨磁效应",
+            "B. 激磁效应",
+            "C. 极磁效应",
+            "D. 聚磁效应"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 149,
+        "type": "single_choice",
+        "question": "在浮点数的运算中...判断其运算下溢出的条件，是（ ）。",
+        "options": [
+            "A. 00",
+            "B. 01",
+            "C. 10",
+            "D. 11"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 150,
+        "type": "single_choice",
+        "question": "一般来说中断允许标志处在（ ）中。",
+        "options": [
+            "A. 状态寄存器",
+            "B. 堆栈",
+            "C. 总线",
+            "D. 内存储器"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 151,
+        "type": "single_choice",
+        "question": "以下不是微指令设计追求的目标的是（ ）。",
+        "options": [
+            "A. 指令字长力求短",
+            "B. 占用控存力求小",
+            "C. 寻找后续地址的方式力求单一",
+            "D. 指令设计的方式的方式力求灵活"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 152,
+        "type": "single_choice",
+        "question": "多模块交叉存储器属于（ ）存储器结构，采用（ ）技术。",
+        "options": [
+            "A. 串行 时间串行",
+            "B. 串行 空间串行",
+            "C. 并行 时间并行",
+            "D. 并行 空间串行"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 153,
+        "type": "single_choice",
+        "question": "响应中断请求的条件是（ ）。",
+        "options": [
+            "A. 外设提出中断；",
+            "B. 外设工作完成和系统允许时；",
+            "C. 外设工作完成和中断标记触发器为“ 1 ”时；",
+            "D. CPU"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 154,
+        "type": "single_choice",
+        "question": "下列叙述中（ ）是错误的。",
+        "options": [
+            "A. 取指令操作是控制器固有的功能，不需要在操作码控制下完成；",
+            "B. 所有指令的取指令操作都是相同的；",
+            "C. 在指令长度相同的情况下，所有指令的取指操作都是相同的；",
+            "D. 一条指令包含取指、分析、执行三个阶段。"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 155,
+        "type": "single_choice",
+        "question": "（ ）是错误的。",
+        "options": [
+            "A. 采用微程序控制器的处理器称为微处理器；",
+            "B. 在微指令编码中，编码效率最低的是直接编码方式；",
+            "C. 在各种微地址形成方式中，增量计数器法需要的顺序控制字段较短；",
+            "D. CMAR 是控制器中存储地址寄存器。"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 156,
+        "type": "single_choice",
+        "question": "中断向量可提供（ ）。",
+        "options": [
+            "A. 被选中设备的地址；",
+            "B. 传送数据的起始地址；",
+            "C. 中断服务程序入口地址；",
+            "D. 主程序的断点地址"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 157,
+        "type": "single_choice",
+        "question": "在中断周期中，将允许中断触发器置“ 0 ”的操作由（ ）完成。",
+        "options": [
+            "A. 硬件；",
+            "B. 关中断指令；",
+            "C. 开中断指令；",
+            "D. 软件"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 158,
+        "type": "single_choice",
+        "question": "下面哪一条不是冯·诺依曼型计算机系统结构的特点（ ）。",
+        "options": [
+            "A. 存储器是按地址访问的顺序线性编址的唯一结构",
+            "B. 指令由操作码和地址码组成。",
+            "C. 程序算法上可以进行并行操作。",
+            "D. 在存储器中，指令和数据同等对待。"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 159,
+        "type": "single_choice",
+        "question": "就使用语言的角度而言，可将计算机系统看成是按功能划分的（ ）组成的层次结构。",
+        "options": [
+            "A. 多个机器级",
+            "B. 多个软件级",
+            "C. 微程序级",
+            "D. 多个系统"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 160,
+        "type": "single_choice",
+        "question": "阵列机ILLIA IV属于（ ）。",
+        "options": [
+            "A. SISD",
+            "B. SIMD",
+            "C. MISD",
+            "D. MIMD"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 161,
+        "type": "single_choice",
+        "question": "计算机系列化的优点不包括（ ）。",
+        "options": [
+            "A. 有利于计算机的升级换代",
+            "B. 便于组成多机系统和网络",
+            "C. 同一系列内的软件一定是向下兼容的",
+            "D. 在使用共同系统软件的基础上解决程序的兼容性"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 162,
+        "type": "single_choice",
+        "question": "计算机的结构与组成不包括（ ）。",
+        "options": [
+            "A. 操作系统",
+            "B. 硬联逻辑",
+            "C. 微程序控制",
+            "D. 所有硬件和固件的功"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 163,
+        "type": "single_choice",
+        "question": "DMA访问主存时，让CPU处于等待状态...这种情况称作（ ）。",
+        "options": [
+            "A. 停止CPU访问主存；",
+            "B. 周期挪用；",
+            "C. DMA与CPU交替访问；",
+            "D. DMA。"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 164,
+        "type": "single_choice",
+        "question": "运算器中不包含（ ）。",
+        "options": [
+            "A. 状态寄存器；",
+            "B. 数据总线；",
+            "C. ALU；",
+            "D. 地址寄存器。"
+        ],
+        "answer": "D"
+    },
+    {
+        "id": 165,
+        "type": "single_choice",
+        "question": "计算机操作的最小单位时间是（ ）。",
+        "options": [
+            "A. 时钟周期",
+            "B. 指令周期；",
+            "C. 中断周期。",
+            "D. CPU 周期；"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 166,
+        "type": "single_choice",
+        "question": "用以指定待执行指令所在地址的是（ ）。",
+        "options": [
+            "A. 指令寄存器；",
+            "B. 数据计数器；",
+            "C. 程序计数器；",
+            "D. 累加器"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 167,
+        "type": "single_choice",
+        "question": "下列描述中（ ）是正确的。",
+        "options": [
+            "A. 控制器能理解、解释并执行所有的指令及存储结果；",
+            "B. 一台计算机包括输入、输出、控制、存储及算逻运算五个单元；",
+            "C. 所有的数据运算都在 CPU 的控制器中完成；",
+            "D. 以上答案都正确。"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 168,
+        "type": "single_choice",
+        "question": "总线通信中的同步控制是（ ）。",
+        "options": [
+            "A. 只适合于 CPU 控制的方式；",
+            "B. 由统一时序控制的方式；",
+            "C. 只适合于外围设备控制的方式；",
+            "D. 只适合于主存。"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 169,
+        "type": "single_choice",
+        "question": "16K × 32 位的存储器，其地址线和数据线的总和是（ ）。",
+        "options": [
+            "A. 48 ；",
+            "B. 46 ；",
+            "C. 36 ；",
+            "D. 32 。"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 170,
+        "type": "single_choice",
+        "question": "计算机字长是 16 位，它的存储容量是 1MB ，按字编址，它的寻址范围是（ ）。",
+        "options": [
+            "A. 512K ；",
+            "B. 1M ；",
+            "C. 512KB ；",
+            "D. 1MB 。"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 171,
+        "type": "single_choice",
+        "question": "以下（ ）是错误的。",
+        "options": [
+            "A. 中断服务程序可以是操作系统模块；",
+            "B. 中断向量就是中断服务程序的入口地址；",
+            "C. 中断向量法可以提高识别中断源的速度；",
+            "D. 软件查询法和硬件法都能找到中断服务程序的入口地址。"
+        ],
+        "answer": "B"
+    },
+    {
+        "id": 172,
+        "type": "single_choice",
+        "question": "浮点数的表示范围和精度取决于（ ）。",
+        "options": [
+            "A. 阶码的位数和尾数的机器数形式；",
+            "B. 阶码的机器数形式和尾数的位数；",
+            "C. 阶码的位数和尾数的位数；",
+            "D. 阶码的机器数形式和尾数的机器数形式。"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 173,
+        "type": "single_choice",
+        "question": "CPU响应中断的时间是（ ）。",
+        "options": [
+            "A. 中断源提出请求；",
+            "B. 取指周期结束；",
+            "C. 执行周期结束；",
+            "D. 间址周期结束。"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 174,
+        "type": "single_choice",
+        "question": "下列说法中（ ）是正确的。",
+        "options": [
+            "A. 加法指令的执行周期一定要访存；",
+            "B. 加法指令的执行周期一定不访存；",
+            "C. 指令的地址码给出存储器地址的加法指令，在执行周期一定访存；",
+            "D. 指令的地址码给出存储器地址的加法指令，在执行周期不一定访存。"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 175,
+        "type": "single_choice",
+        "question": "垂直型微指令的特点是（ ）。",
+        "options": [
+            "A. 微指令格式垂直表示；",
+            "B. 控制信号经过编码产生；",
+            "C. 采用微操作码；",
+            "D. 采用微指令码。"
+        ],
+        "answer": "C"
+    },
+    {
+        "id": 176,
+        "type": "single_choice",
+        "question": "基址寻址方式中，操作数的有效地址是（ ）。",
+        "options": [
+            "A. 基址寄存器内容加上形式地址（位移量）；",
+            "B. 程序计数器内容加上形式地址；",
+            "C. 变址寄存器内容加上形式地址；",
+            "D. 寄存器内容加上形式地址。"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 177,
+        "type": "single_choice",
+        "question": "常用的虚拟存储器寻址系统由（ ）两级存储器组成。",
+        "options": [
+            "A. 主存－辅存；",
+            "B. Cache－主存；",
+            "C. Cache－辅存；",
+            "D. 主存—硬盘。"
+        ],
+        "answer": "A"
+    }
+]
