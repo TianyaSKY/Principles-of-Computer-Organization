@@ -6,7 +6,7 @@ class QuizApp:
     def __init__(self, root):
         self.root = root
         self.root.title("计算机组成原理刷题系统 v2.0")
-        self.root.geometry("800x600") # 加大窗口以便显示更多内容
+        self.root.geometry("900x700") # 加大窗口尺寸，防止内容展示不全
 
         # --- 数据初始化 ---
         self.questions = []
@@ -55,19 +55,33 @@ class QuizApp:
         btn_preview = tk.Button(top_frame, text="📅 题目概览 / 跳转", command=self.open_question_board, bg="#2196F3", fg="white", font=("微软雅黑", 10, "bold"))
         btn_preview.pack(side="right")
 
-        # 2. 题目显示区域
-        self.question_label = tk.Label(self.root, text="", font=("微软雅黑", 14, "bold"), wraplength=700, justify="left")
-        self.question_label.pack(pady=20, padx=20)
+        # --- 中间主要内容区 (用于控制整体边距) ---
+        main_content = tk.Frame(self.root)
+        main_content.pack(fill="both", expand=True, padx=40, pady=10)
 
-        # 3. 选项区域 (动态内容)
-        self.options_frame = tk.Frame(self.root)
-        self.options_frame.pack(pady=10, fill="both", expand=True, padx=40)
+        # 2. 题型标签 (固定在左上角)
+        self.type_label = tk.Label(main_content, text="", font=("微软雅黑", 12, "bold"), fg="#1976D2")
+        self.type_label.pack(anchor="w", pady=(0, 5))
 
-        # 4. 反馈信息区域
+        # 3. 题目文本显示区域 (左对齐，自动换行)
+        self.question_label = tk.Label(
+            main_content, 
+            text="", 
+            font=("微软雅黑", 14), 
+            wraplength=820,  # 增加换行宽度
+            justify="left"   # 文本左对齐
+        )
+        self.question_label.pack(anchor="w", fill="x", pady=(0, 20))
+
+        # 4. 选项区域 (动态内容)
+        self.options_frame = tk.Frame(main_content)
+        self.options_frame.pack(fill="both", expand=True)
+
+        # 5. 反馈信息区域
         self.feedback_label = tk.Label(self.root, text="", font=("微软雅黑", 12))
         self.feedback_label.pack(pady=5)
 
-        # 5. 底部控制按钮
+        # 6. 底部控制按钮
         bottom_frame = tk.Frame(self.root)
         bottom_frame.pack(pady=20)
 
@@ -88,23 +102,26 @@ class QuizApp:
         answered_count = sum(1 for s in self.question_status if s is not None)
         self.status_label.config(text=f"当前第 {self.current_index + 1} 题 / 共 {len(self.questions)} 题 | 累计得分: {self.score} | 已完成: {answered_count}")
         
-        # 2. 显示题目文本
+        # 2. 显示题目类型 (左上角)
         q_type_map = {"single_choice": "选择题", "true_false": "判断题", "fill_in": "填空题"}
         q_type_cn = q_type_map.get(q_data['type'], "题目")
-        self.question_label.config(text=f"【{q_type_cn}】\n{q_data['question']}")
+        self.type_label.config(text=f"【{q_type_cn}】")
+
+        # 3. 显示题目内容 (仅显示题干)
+        self.question_label.config(text=q_data['question'])
         
-        # 3. 清空旧选项
+        # 4. 清空旧选项
         for widget in self.options_frame.winfo_children():
             widget.destroy()
         
         self.user_answer_var.set("")
         self.feedback_label.config(text="")
 
-        # 4. 检查当前题目的历史状态（是否做过）
+        # 5. 检查当前题目的历史状态（是否做过）
         status = self.question_status[self.current_index]
         is_answered = status is not None
 
-        # 5. 渲染选项
+        # 6. 渲染选项
         if q_data['type'] in ["single_choice", "true_false"]:
             for option in q_data['options']:
                 # 智能提取选项值 (例如 "A. 内容" -> "A")
@@ -112,7 +129,6 @@ class QuizApp:
                 if "." in option:
                     val = option.split(".")[0].strip()
                 elif "(" in option:  # 处理 (T) 这种格式
-                    # 尝试提取括号内的内容作为 value
                     try:
                         val = option.split("(")[1].split(")")[0].strip()
                     except:
@@ -127,11 +143,11 @@ class QuizApp:
                     
         elif q_data['type'] == "fill_in":
             entry = tk.Entry(self.options_frame, textvariable=self.user_answer_var, font=("微软雅黑", 12))
-            entry.pack(pady=10)
+            entry.pack(pady=10, fill="x") # 填空框拉长
             if is_answered:
                 entry.config(state="disabled")
         
-        # 6. 恢复界面状态（根据是否做过）
+        # 7. 恢复界面状态（根据是否做过）
         if is_answered:
             self.submit_btn.config(state="disabled", text="已作答", bg="gray")
             if status == 'correct':
@@ -141,7 +157,7 @@ class QuizApp:
         else:
             self.submit_btn.config(state="normal", text="提交答案", bg="#4CAF50")
             
-        # 7. 控制翻页按钮可用性
+        # 8. 控制翻页按钮可用性
         self.prev_btn.config(state="normal" if self.current_index > 0 else "disabled")
         self.next_btn.config(state="normal" if self.current_index < len(self.questions) - 1 else "disabled")
 
