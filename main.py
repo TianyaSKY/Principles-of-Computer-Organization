@@ -1,17 +1,18 @@
 import sys
 import json
+import datetime
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                                QHBoxLayout, QLabel, QPushButton, QRadioButton, 
                                QLineEdit, QButtonGroup, QMessageBox, QScrollArea, 
-                               QDialog, QGridLayout, QFrame)
-from PySide6.QtCore import Qt, QSize
-from PySide6.QtGui import QFont
+                               QDialog, QGridLayout, QFrame, QFileDialog)
+from PySide6.QtCore import Qt, QSize, QTimer
+from PySide6.QtGui import QFont, QKeyEvent
 
 class QuizApp(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("计算机组成原理刷题系统 v3.0 (Qt版)")
+        self.setWindowTitle("计算机组成原理刷题系统 v3.2 (支持错题导出)")
         self.resize(1000, 700)
 
         # --- 数据初始化 ---
@@ -20,6 +21,8 @@ class QuizApp(QMainWindow):
         self.score = 0
         # 记录状态: None=未答, 'correct'=正确, 'wrong'=错误
         self.question_status = [] 
+        # 记录用户的具体答案，用于生成报告 (索引 -> 用户答案字符串)
+        self.user_answers_log = {} 
         
         # 字体设置
         self.font_title = QFont("Microsoft YaHei", 12, QFont.Bold)
@@ -59,16 +62,33 @@ class QuizApp(QMainWindow):
         
         # 主垂直布局
         self.main_layout = QVBoxLayout(central_widget)
-        self.main_layout.setContentsMargins(30, 20, 30, 20) # 设置边距
-        self.main_layout.setSpacing(15) # 控件间距
+        self.main_layout.setContentsMargins(30, 20, 30, 20)
+        self.main_layout.setSpacing(15)
 
-        # 1. 顶部栏 (状态 + 跳转按钮)
+        # 1. 顶部栏 (状态 + 导出按钮 + 跳转按钮)
         top_layout = QHBoxLayout()
         
         self.status_label = QLabel("加载中...")
         self.status_label.setFont(QFont("Microsoft YaHei", 10))
         self.status_label.setStyleSheet("color: #555;")
         
+        # 导出按钮
+        self.btn_export = QPushButton("📂 导出错题报告")
+        self.btn_export.setCursor(Qt.PointingHandCursor)
+        self.btn_export.setStyleSheet("""
+            QPushButton {
+                background-color: #FF9800; 
+                color: white; 
+                border-radius: 5px; 
+                padding: 8px 15px; 
+                font-weight: bold;
+                font-family: "Microsoft YaHei";
+            }
+            QPushButton:hover { background-color: #F57C00; }
+        """)
+        self.btn_export.clicked.connect(self.export_error_report)
+
+        # 概览按钮
         self.btn_preview = QPushButton("📅 题目概览 / 跳转")
         self.btn_preview.setCursor(Qt.PointingHandCursor)
         self.btn_preview.setStyleSheet("""
@@ -85,7 +105,8 @@ class QuizApp(QMainWindow):
         self.btn_preview.clicked.connect(self.open_question_board)
 
         top_layout.addWidget(self.status_label)
-        top_layout.addStretch() # 弹簧，把两边推开
+        top_layout.addStretch() 
+        top_layout.addWidget(self.btn_export) # 添加导出按钮
         top_layout.addWidget(self.btn_preview)
         
         self.main_layout.addLayout(top_layout)
@@ -96,35 +117,33 @@ class QuizApp(QMainWindow):
         line.setFrameShadow(QFrame.Sunken)
         self.main_layout.addWidget(line)
 
-        # 2. 题目类型标签 (左上角)
+        # 2. 题目类型标签
         self.type_label = QLabel("")
         self.type_label.setFont(QFont("Microsoft YaHei", 12, QFont.Bold))
         self.type_label.setStyleSheet("color: #1976D2; margin-top: 10px;")
         self.main_layout.addWidget(self.type_label)
 
-        # 3. 题目内容 (核心优化：自动换行，顶部对齐)
+        # 3. 题目内容
         self.question_label = QLabel("")
         self.question_label.setFont(self.font_title)
-        self.question_label.setWordWrap(True) # Qt 原生支持自动换行
-        self.question_label.setAlignment(Qt.AlignTop | Qt.AlignLeft) # 顶部左对齐
+        self.question_label.setWordWrap(True)
+        self.question_label.setAlignment(Qt.AlignTop | Qt.AlignLeft)
         self.question_label.setStyleSheet("padding-bottom: 10px;")
         
-        # 使用 ScrollArea 防止超长题目撑破窗口 (虽然一般不会)
         question_scroll = QScrollArea()
         question_scroll.setWidgetResizable(True)
         question_scroll.setWidget(self.question_label)
-        question_scroll.setFrameShape(QFrame.NoFrame) # 去掉边框
-        question_scroll.setFixedHeight(120) # 固定高度区域给题目
+        question_scroll.setFrameShape(QFrame.NoFrame)
+        question_scroll.setFixedHeight(120)
         
         self.main_layout.addWidget(question_scroll)
 
-        # 4. 选项区域 (动态容器)
+        # 4. 选项区域
         self.options_widget = QWidget()
         self.options_layout = QVBoxLayout(self.options_widget)
-        self.options_layout.setContentsMargins(10, 0, 0, 0) # 左边缩进一点
+        self.options_layout.setContentsMargins(10, 0, 0, 0)
         self.options_layout.setAlignment(Qt.AlignTop)
         
-        # 将选项区域放入一个可滚动的区域（应对选项特别多的情况）
         self.options_scroll = QScrollArea()
         self.options_scroll.setWidgetResizable(True)
         self.options_scroll.setWidget(self.options_widget)
@@ -146,7 +165,6 @@ class QuizApp(QMainWindow):
         self.btn_submit = QPushButton("提交答案")
         self.btn_next = QPushButton("下一题 >")
 
-        # 按钮通用样式
         btn_style = """
             QPushButton {
                 background-color: #f0f0f0; 
@@ -191,40 +209,39 @@ class QuizApp(QMainWindow):
         self.main_layout.addLayout(bottom_layout)
 
         # 变量存储
-        self.current_button_group = None # 用于管理单选按钮互斥
-        self.input_field = None # 用于填空题
+        self.current_button_group = None 
+        self.input_field = None 
 
     def show_question(self):
         """渲染题目逻辑"""
         q_data = self.questions[self.current_index]
         
-        # 1. 更新顶部状态
+        # 更新顶部状态
         answered_count = sum(1 for s in self.question_status if s is not None)
         self.status_label.setText(f"当前第 {self.current_index + 1} 题 / 共 {len(self.questions)} 题   |   得分: {self.score}   |   已完成: {answered_count}")
 
-        # 2. 显示题型
+        # 显示题型
         q_type_map = {"single_choice": "选择题", "true_false": "判断题", "fill_in": "填空题"}
         self.type_label.setText(f"【{q_type_map.get(q_data['type'], '题目')}】")
 
-        # 3. 显示题目内容
+        # 显示题目
         self.question_label.setText(q_data['question'])
 
-        # 4. 清空旧选项
+        # 清空旧控件
         self.clear_layout(self.options_layout)
         self.current_button_group = None
         self.input_field = None
         self.feedback_label.setText("")
 
-        # 5. 检查历史状态
+        # 检查状态
         status = self.question_status[self.current_index]
         is_answered = status is not None
 
-        # 6. 渲染新选项
+        # 渲染选项
         if q_data['type'] in ["single_choice", "true_false"]:
             self.current_button_group = QButtonGroup(self)
             
             for idx, option in enumerate(q_data['options']):
-                # 智能提取 Value
                 val = option
                 if "." in option:
                     val = option.split(".")[0].strip()
@@ -236,7 +253,7 @@ class QuizApp(QMainWindow):
 
                 rb = QRadioButton(option)
                 rb.setFont(self.font_option)
-                rb.setProperty("value", val) # 自定义属性存储答案值
+                rb.setProperty("value", val)
                 rb.setStyleSheet("padding: 5px;")
                 
                 self.options_layout.addWidget(rb)
@@ -244,8 +261,13 @@ class QuizApp(QMainWindow):
                 
                 if is_answered:
                     rb.setEnabled(False)
+                    # 如果这道题答过了，且这是用户选的选项，我们要选中它 (视觉恢复)
+                    # 但由于 ButtonGroup 不保留历史，这只是简单展示。
+                    # 如果需要精确恢复用户选了哪个错项，需要从 self.user_answers_log 读取
+                    user_val = self.user_answers_log.get(self.current_index)
+                    if user_val and str(val).upper() == str(user_val).upper():
+                        rb.setChecked(True)
             
-            # 弹簧，把选项顶上去
             self.options_layout.addStretch()
 
         elif q_data['type'] == "fill_in":
@@ -258,8 +280,14 @@ class QuizApp(QMainWindow):
 
             if is_answered:
                 self.input_field.setEnabled(False)
+                # 恢复填空题的显示
+                user_val = self.user_answers_log.get(self.current_index, "")
+                self.input_field.setText(user_val)
+            else:
+                self.input_field.setFocus()
+                self.input_field.returnPressed.connect(self.check_answer)
 
-        # 7. 恢复按钮状态
+        # 恢复状态
         if is_answered:
             self.btn_submit.setText("已作答")
             self.btn_submit.setEnabled(False)
@@ -276,8 +304,41 @@ class QuizApp(QMainWindow):
         self.btn_prev.setEnabled(self.current_index > 0)
         self.btn_next.setEnabled(self.current_index < len(self.questions) - 1)
 
+    def keyPressEvent(self, event: QKeyEvent):
+        key = event.key()
+
+        if key in (Qt.Key_Return, Qt.Key_Enter):
+            if self.btn_submit.isEnabled():
+                if not (self.input_field and self.input_field.hasFocus()):
+                    self.check_answer()
+            elif self.btn_next.isEnabled():
+                self.next_question()
+            return
+
+        if self.btn_submit.isEnabled():
+            q_data = self.questions[self.current_index]
+            target_val = None
+
+            if q_data['type'] == "single_choice":
+                if key == Qt.Key_A: target_val = "A"
+                elif key == Qt.Key_B: target_val = "B"
+                elif key == Qt.Key_C: target_val = "C"
+                elif key == Qt.Key_D: target_val = "D"
+
+            elif q_data['type'] == "true_false":
+                if key == Qt.Key_T: target_val = "T"
+                elif key == Qt.Key_F: target_val = "F"
+            
+            if target_val and self.current_button_group:
+                for btn in self.current_button_group.buttons():
+                    if str(btn.property("value")).upper() == target_val:
+                        btn.setChecked(True)
+                        btn.setFocus()
+                        break
+
+        super().keyPressEvent(event)
+
     def check_answer(self):
-        """检查答案"""
         user_ans = ""
         q_data = self.questions[self.current_index]
 
@@ -294,7 +355,9 @@ class QuizApp(QMainWindow):
                 QMessageBox.warning(self, "提示", "请输入答案！")
                 return
 
-        # 比对
+        # 记录用户的原始答案
+        self.user_answers_log[self.current_index] = user_ans
+
         correct_ans = str(q_data['answer']).strip()
         is_correct = user_ans.upper() == correct_ans.upper()
 
@@ -308,7 +371,6 @@ class QuizApp(QMainWindow):
             self.feedback_label.setText(f"❌ 回答错误。正确答案是: {correct_ans}")
             self.feedback_label.setStyleSheet("color: red;")
 
-        # 刷新界面锁定
         self.show_question()
 
     def prev_question(self):
@@ -322,7 +384,6 @@ class QuizApp(QMainWindow):
             self.show_question()
 
     def clear_layout(self, layout):
-        """辅助函数：清空 Layout 中的所有控件"""
         while layout.count():
             item = layout.takeAt(0)
             widget = item.widget()
@@ -330,14 +391,12 @@ class QuizApp(QMainWindow):
                 widget.deleteLater()
 
     def open_question_board(self):
-        """打开概览窗口"""
         dialog = QDialog(self)
         dialog.setWindowTitle("题目概览 (点击题号跳转)")
         dialog.resize(700, 500)
         
         layout = QVBoxLayout(dialog)
         
-        # 图例
         legend_layout = QHBoxLayout()
         legend_layout.addWidget(QLabel("图例:"))
         
@@ -354,7 +413,6 @@ class QuizApp(QMainWindow):
         
         layout.addLayout(legend_layout)
 
-        # 滚动区域
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)
         content_widget = QWidget()
@@ -366,7 +424,6 @@ class QuizApp(QMainWindow):
             btn = QPushButton(str(i + 1))
             btn.setFixedSize(50, 35)
             
-            # 样式逻辑
             bg_color = "#f0f0f0"
             fg_color = "black"
             border = "1px solid #ccc"
@@ -390,31 +447,70 @@ class QuizApp(QMainWindow):
                 QPushButton:hover {{ filter: brightness(90%); }}
             """)
             
-            # 闭包绑定索引
             btn.clicked.connect(lambda checked=False, idx=i: [self.jump_to(idx), dialog.close()])
             
             grid.addWidget(btn, i // cols, i % cols)
             
         scroll.setWidget(content_widget)
         layout.addWidget(scroll)
-        
         dialog.exec()
 
     def jump_to(self, index):
         self.current_index = index
         self.show_question()
 
+    def export_error_report(self):
+        """导出错题报告逻辑"""
+        wrong_indices = [i for i, status in enumerate(self.question_status) if status == 'wrong']
+        
+        if not wrong_indices:
+            QMessageBox.information(self, "棒棒哒", "目前没有错题！\n请继续加油或检查是否还未开始答题。")
+            return
+
+        # 生成默认文件名 (包含时间戳)
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        default_filename = f"错题本_{timestamp}.txt"
+        
+        # 弹出保存对话框
+        file_path, _ = QFileDialog.getSaveFileName(self, "保存错题报告", default_filename, "Text Files (*.txt);;All Files (*)")
+        
+        if file_path:
+            try:
+                with open(file_path, "w", encoding="utf-8") as f:
+                    f.write(f"=== 计算机组成原理错题报告 ===\n")
+                    f.write(f"生成时间: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                    f.write(f"错题数量: {len(wrong_indices)}\n")
+                    f.write("=" * 30 + "\n\n")
+
+                    for idx in wrong_indices:
+                        q = self.questions[idx]
+                        user_ans = self.user_answers_log.get(idx, "未记录")
+                        
+                        f.write(f"【第 {idx + 1} 题】 ({q['type']})\n")
+                        f.write(f"题目: {q['question']}\n")
+                        
+                        if q['type'] in ["single_choice", "true_false"]:
+                            f.write("选项:\n")
+                            for opt in q['options']:
+                                f.write(f"  {opt}\n")
+                        
+                        f.write(f"❌ 你的答案: {user_ans}\n")
+                        f.write(f"✅ 正确答案: {q['answer']}\n")
+                        f.write("-" * 30 + "\n\n")
+                        
+                QMessageBox.information(self, "成功", f"错题报告已保存至:\n{file_path}")
+                
+            except Exception as e:
+                QMessageBox.critical(self, "导出失败", f"保存文件时出错:\n{e}")
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    
-    # 全局样式优化
     app.setStyleSheet("""
         QMainWindow { background-color: white; }
         QScrollArea { background-color: transparent; border: none; }
         QRadioButton { spacing: 8px; }
         QRadioButton::indicator { width: 16px; height: 16px; }
     """)
-    
     window = QuizApp()
     window.show()
     sys.exit(app.exec())
