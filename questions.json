@@ -1625,6 +1625,111 @@
         "question": "IBM365系统是最早采用集成电路的通用计算机，也是影响最大的第三代计算机。",
         "options": ["正确 (T)", "错误 (F)"],
         "answer": "F"
+    },
+    {
+        "id": 179,
+        "type": "fill_in_the_blank",
+        "question": "冯·诺依曼计算机中协调各部件有序工作的部件是（ ）。",
+        "answer": "控制器"
+    },
+    {
+        "id": 180,
+        "type": "fill_in_the_blank",
+        "question": "衡量打印机打印速度的参数有（ ）。",
+        "answer": "PPM"
+    },
+    {
+        "id": 181,
+        "type": "fill_in_the_blank",
+        "question": "根据摩尔定律，每18～24个月，单位面积内晶体管的数量将增加（ ）%",
+        "answer": "100"
+    },
+    {
+        "id": 182,
+        "type": "fill_in_the_blank",
+        "question": "描述显示器大小的24英寸指的是屏幕的_____长度。",
+        "answer": "对角线"
+    },
+    {
+        "id": 183,
+        "type": "fill_in_the_blank",
+        "question": "16位的色深代表显示器可以显示______种颜色。",
+        "answer": "65536"
+    },
+    {
+        "id": 184,
+        "type": "fill_in_the_blank",
+        "question": "磁盘的盘面上有很多半径不同的同心圆，这些同心圆称为（）。",
+        "answer": "磁道"
+    },
+    {
+        "id": 185,
+        "type": "fill_in_the_blank",
+        "question": "外存储器与内存储器相比，外存储器速度（ ），容量（ ），成本（ ）。",
+        "answer": "慢、大、低"
+    },
+    {
+        "id": 186,
+        "type": "fill_in_the_blank",
+        "question": "电可擦除可编程只读存储器的英文缩写为（）。",
+        "answer": "EEPROM"
+    },
+    {
+        "id": 187,
+        "type": "fill_in_the_blank",
+        "question": "数制中一般约定，若字母采用大写形式，二进制数后面加后缀（），八进制数后面加后缀（），十进制数后面加后缀（），十六进制数后面加后缀（）。",
+        "answer": "B、Q、D、H"
+    },
+    {
+        "id": 188,
+        "type": "fill_in_the_blank",
+        "question": "8086机器，将62A0H和4321H相加，则AF=____, SF=____, ZF=____, CF=____, OF=____, PF=____。",
+        "answer": "0、1、0、0、1、0"
+    },
+    {
+        "id": 189,
+        "type": "fill_in_the_blank",
+        "question": "754标准中，若除去符号位，单精度数的尾数为（）位，双精度数的尾数为（）位。",
+        "answer": "23、52"
+    },
+    {
+        "id": 190,
+        "type": "fill_in_the_blank",
+        "question": "754标准中，单精度数的阶码为（）位，双精度数的阶码为（）位。",
+        "answer": "8、11"
+    },
+    {
+        "id": 191,
+        "type": "fill_in_the_blank",
+        "question": "754标准中，单精度数的阶码为增码，也叫（）。单精度数的阶码值为0，增码表示为（）。",
+        "answer": "移码、127"
+    },
+    {
+        "id": 192,
+        "type": "fill_in_the_blank",
+        "question": "若某计算机最复杂指令的执行需要完成 5 个子功能，分别由功能部件 A～E 实现，各功能部件所需时间分别为 80ps、50ps、50ps、70ps 和 50ps，采用流水线方式执行指令，流水段寄存器延时为 20ps，则 CPU 时钟周期至少为____ps。",
+        "answer": "100"
+    },
+    {
+        "id": 193,
+        "type": "true_false",
+        "question": "奇偶校验可以纠正代码中出现的错误。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 194,
+        "type": "true_false",
+        "question": "CPU访问存储器的时间是由存储器的容量决定的，存储容量越大，访问存储器所需的时间越长。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
+    },
+    {
+        "id": 195,
+        "type": "true_false",
+        "question": "754标准中，单精度数的阶码采用移码表示，尾数用补码表示。",
+        "options": ["正确 (T)", "错误 (F)"],
+        "answer": "F"
     }
     
 ]

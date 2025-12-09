@@ -1,5 +1,6 @@
 import sys
 import json
+import sqlite3  # [新增] 导入sqlite3
 import datetime
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                                QHBoxLayout, QLabel, QPushButton, QRadioButton, 
@@ -12,16 +13,14 @@ class QuizApp(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("计算机组成原理刷题系统 v3.2 (支持错题导出)")
+        self.setWindowTitle("计算机组成原理刷题系统 v4.0 (数据库版)")
         self.resize(1000, 700)
 
         # --- 数据初始化 ---
         self.questions = []
         self.current_index = 0
         self.score = 0
-        # 记录状态: None=未答, 'correct'=正确, 'wrong'=错误
         self.question_status = [] 
-        # 记录用户的具体答案，用于生成报告 (索引 -> 用户答案字符串)
         self.user_answers_log = {} 
         
         # 字体设置
@@ -39,23 +38,52 @@ class QuizApp(QMainWindow):
         if self.questions:
             self.show_question()
         else:
-            QMessageBox.critical(self, "错误", "题库加载失败或为空！")
+            QMessageBox.critical(self, "错误", "题库加载失败！请确保 'quiz.db' 文件存在。")
 
     def load_data(self):
-        """读取JSON文件"""
+        """[修改] 从 SQLite 数据库读取题目"""
         try:
-            with open("questions.json", "r", encoding="utf-8") as f:
-                self.questions = json.load(f)
-                self.question_status = [None] * len(self.questions)
-        except FileNotFoundError:
+            # 连接数据库
+            conn = sqlite3.connect("quiz.db")
+            cursor = conn.cursor()
+            
+            # 查询所有题目
+            cursor.execute("SELECT id, type, question, options, answer FROM questions ORDER BY id")
+            rows = cursor.fetchall()
+            
             self.questions = []
-            QMessageBox.critical(self, "错误", "找不到 questions.json 文件！")
+            
+            for row in rows:
+                # 数据库取出的 options 是 JSON 字符串，需要转回 Python 列表
+                options_list = json.loads(row[3]) if row[3] else []
+                
+                # 构造字典，保持与原有逻辑兼容
+                q_data = {
+                    "id": row[0],
+                    "type": row[1],
+                    "question": row[2],
+                    "options": options_list,
+                    "answer": row[4]
+                }
+                self.questions.append(q_data)
+                
+            conn.close()
+            
+            # 初始化状态列表
+            self.question_status = [None] * len(self.questions)
+            
+            if not self.questions:
+                raise ValueError("数据库中没有题目数据")
+
+        except sqlite3.Error as e:
+            self.questions = []
+            QMessageBox.critical(self, "数据库错误", f"无法读取数据库: {e}\n请先运行 init_db.py")
         except Exception as e:
             self.questions = []
-            QMessageBox.critical(self, "错误", f"读取文件出错: {e}")
+            QMessageBox.critical(self, "错误", f"加载数据出错: {e}")
 
     def setup_ui(self):
-        """构建主界面 UI"""
+        """构建主界面 UI (保持不变)"""
         # 主窗口部件
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -106,7 +134,7 @@ class QuizApp(QMainWindow):
 
         top_layout.addWidget(self.status_label)
         top_layout.addStretch() 
-        top_layout.addWidget(self.btn_export) # 添加导出按钮
+        top_layout.addWidget(self.btn_export)
         top_layout.addWidget(self.btn_preview)
         
         self.main_layout.addLayout(top_layout)
@@ -221,7 +249,12 @@ class QuizApp(QMainWindow):
         self.status_label.setText(f"当前第 {self.current_index + 1} 题 / 共 {len(self.questions)} 题   |   得分: {self.score}   |   已完成: {answered_count}")
 
         # 显示题型
-        q_type_map = {"single_choice": "选择题", "true_false": "判断题", "fill_in": "填空题"}
+        q_type_map = {
+            "single_choice": "选择题", 
+            "true_false": "判断题", 
+            "fill_in": "填空题",
+            "fill_in_the_blank": "填空题" # 兼容旧数据
+        }
         self.type_label.setText(f"【{q_type_map.get(q_data['type'], '题目')}】")
 
         # 显示题目
@@ -261,16 +294,13 @@ class QuizApp(QMainWindow):
                 
                 if is_answered:
                     rb.setEnabled(False)
-                    # 如果这道题答过了，且这是用户选的选项，我们要选中它 (视觉恢复)
-                    # 但由于 ButtonGroup 不保留历史，这只是简单展示。
-                    # 如果需要精确恢复用户选了哪个错项，需要从 self.user_answers_log 读取
                     user_val = self.user_answers_log.get(self.current_index)
                     if user_val and str(val).upper() == str(user_val).upper():
                         rb.setChecked(True)
             
             self.options_layout.addStretch()
 
-        elif q_data['type'] == "fill_in":
+        elif q_data['type'] in ["fill_in", "fill_in_the_blank"]:
             self.input_field = QLineEdit()
             self.input_field.setFont(self.font_text)
             self.input_field.setPlaceholderText("请输入答案...")
@@ -349,7 +379,7 @@ class QuizApp(QMainWindow):
                 return
             user_ans = checked_btn.property("value")
         
-        elif q_data['type'] == "fill_in":
+        elif q_data['type'] in ["fill_in", "fill_in_the_blank"]:
             user_ans = self.input_field.text().strip()
             if not user_ans:
                 QMessageBox.warning(self, "提示", "请输入答案！")
@@ -467,11 +497,9 @@ class QuizApp(QMainWindow):
             QMessageBox.information(self, "棒棒哒", "目前没有错题！\n请继续加油或检查是否还未开始答题。")
             return
 
-        # 生成默认文件名 (包含时间戳)
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         default_filename = f"错题本_{timestamp}.txt"
         
-        # 弹出保存对话框
         file_path, _ = QFileDialog.getSaveFileName(self, "保存错题报告", default_filename, "Text Files (*.txt);;All Files (*)")
         
         if file_path:
