@@ -22,6 +22,7 @@ class QuizApp(QMainWindow):
         self.score = 0
         self.question_status = [] 
         self.user_answers_log = {} 
+        self.block_key_jump = False
         
         # 字体设置
         self.font_title = QFont("Microsoft YaHei", 12, QFont.Bold)
@@ -338,6 +339,8 @@ class QuizApp(QMainWindow):
         key = event.key()
 
         if key in (Qt.Key_Return, Qt.Key_Enter):
+            if self.block_key_jump:
+                return
             if self.btn_submit.isEnabled():
                 if not (self.input_field and self.input_field.hasFocus()):
                     self.check_answer()
@@ -400,7 +403,8 @@ class QuizApp(QMainWindow):
             self.question_status[self.current_index] = 'wrong'
             self.feedback_label.setText(f"❌ 回答错误。正确答案是: {correct_ans}")
             self.feedback_label.setStyleSheet("color: red;")
-
+        self.block_key_jump = True
+        QTimer.singleShot(500, lambda: setattr(self, 'block_key_jump', False))
         self.show_question()
 
     def prev_question(self):
