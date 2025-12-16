@@ -1,6 +1,6 @@
 import sys
 import json
-import sqlite3  # [新增] 导入sqlite3
+import sqlite3
 import datetime
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                                QHBoxLayout, QLabel, QPushButton, QRadioButton, 
@@ -13,7 +13,7 @@ class QuizApp(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("计算机组成原理刷题系统 v4.0 (数据库版)")
+        self.setWindowTitle("计算机组成原理刷题系统 v4.0")
         self.resize(1000, 700)
 
         # --- 数据初始化 ---
@@ -42,7 +42,7 @@ class QuizApp(QMainWindow):
             QMessageBox.critical(self, "错误", "题库加载失败！请确保 'quiz.db' 文件存在。")
 
     def load_data(self):
-        """[修改] 从 SQLite 数据库读取题目"""
+        """从 SQLite 数据库读取题目"""
         try:
             # 连接数据库
             conn = sqlite3.connect("quiz.db")
@@ -84,7 +84,7 @@ class QuizApp(QMainWindow):
             QMessageBox.critical(self, "错误", f"加载数据出错: {e}")
 
     def setup_ui(self):
-        """构建主界面 UI (保持不变)"""
+        """构建主界面 UI"""
         # 主窗口部件
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
